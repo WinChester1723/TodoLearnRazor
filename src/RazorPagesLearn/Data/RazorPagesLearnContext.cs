@@ -14,8 +14,8 @@ namespace RazorPagesLearn.Data
         {
         }
 
-        public DbSet<RazorPagesLearn.Models.TodoTask> Task { get; set; } = default!;
+        public DbSet<RazorPagesLearn.Models.TodoTask> Task => Set<TodoTask>();
 
-        public DbSet<RazorPagesLearn.Models.Customer> Customer { get; set; } = default!;
+        public DbSet<RazorPagesLearn.Models.Customer> Customer => Set<Customer>();
     }
 }

@@ -9,7 +9,7 @@ builder.Services.AddRazorPages();
 if (builder.Environment.IsDevelopment())
 {
     builder.Services.AddDbContext<RazorPagesLearnContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("RazorPagesLearnContext") 
+    options.UseSqlite(builder.Configuration.GetConnectionString("RazorPagesLearnContextDevelopment") 
     ?? throw new InvalidOperationException("Connection string 'RazorPagesLearnContext' not found.")));
 }
 else

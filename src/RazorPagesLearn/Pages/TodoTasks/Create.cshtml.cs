@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using RazorPagesLearn.Data;
+
 using RazorPagesLearn.Models;
 
 namespace RazorPagesLearn.Pages_TodoTasks
