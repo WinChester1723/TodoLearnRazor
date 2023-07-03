@@ -1,7 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using RazorPagesLearn.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddDbContext<RazorPagesLearnContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("RazorPagesLearnContext") 
+    ?? throw new InvalidOperationException("Connection string 'RazorPagesLearnContext' not found.")));
+}
+else
+{
+    builder.Services.AddDbContext<RazorPagesLearnContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("RazorPagesLearnContext") 
+    ?? throw new InvalidOperationException("Connection string 'RazorPagesLearnContext' not found.")));
+}
 
 var app = builder.Build();
 
