@@ -8,7 +8,9 @@ namespace RazorPagesLearn.Models
         [Required]
         public string UserName { get; set; }
         [Required]
+        [EmailAddress]
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email Address")]
         public string Email { get; set; }
         [Required]
         [DataType(DataType.Password)]
