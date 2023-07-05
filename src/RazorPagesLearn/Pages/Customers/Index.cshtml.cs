@@ -21,6 +21,8 @@ namespace RazorPagesLearn.Pages_Customers
 
         public IList<Customer> Customer { get;set; } = default!;
 
+
+
         public async Task OnGetAsync()
         {
             if (_context.Customer != null)

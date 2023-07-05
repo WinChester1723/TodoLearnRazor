@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using RazorPagesLearn.Data;
+using RazorPagesLearn.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,11 +17,18 @@ if (builder.Environment.IsDevelopment())
 else
 {
     builder.Services.AddDbContext<RazorPagesLearnContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("RazorPagesLearnContext") 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("RazorPagesLearnContext")
     ?? throw new InvalidOperationException("Connection string 'RazorPagesLearnContext' not found.")));
 }
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.Initialize(services);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
